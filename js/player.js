@@ -1,6 +1,6 @@
 
 function playM3u8(url){
-	var url = "http://cdn.live247stream.com/thelight/tv/playlist.m3u8";
+	var url = "https://sportsleading.online/live/stream_e1.m3u8";
   if(Hls.isSupported()) {
       var video = document.getElementById('liveVideo');
       video.volume = 1.0;
