@@ -1,4 +1,6 @@
 <html lang="en" dir="ltr">
+<!-- <html xmlns="http://www.w3.org/1999/xhtml" lang="en"> -->
+
 <head>
     <script>
         ! function (f, b, e, v, n, t, s) {
@@ -23,94 +25,91 @@
         fbq('track', 'PageView');
     </script>
     <script>
-            // 创建 URLSearchParams 对象
-            const urlParams = new URLSearchParams(window.location.search);
-            let p1 = p2 = p0 = p4 = p5= p6 = '';
-            let fbclid = 'null';
-            let fbpid = 'null';
-            let adjhref = "https://app.adjust.com/";
-            let downurl = encodeURI("https://maulikkodala.github.io/app-debug.apk");
-            let downloadApk  = "";
-             // adjust 
-            p0 = urlParams.get('p0');
-            p1 = urlParams.get('p1');
-            p2 = urlParams.get('p2');
-            p3 = urlParams.get('p3');
-            p4 = urlParams.get('p4');
-            p5 = urlParams.get('p5');
-            p6 = urlParams.get('p6');
-            fbclid = urlParams.get('fbclid')||'null';
-            fbpid = getFbpid();
-           
-            downloadApk = adjhref + buildUrl(p0,p1,p2,p3,p4,p5,p6);
-            if(fbclid=='null'){
-               downloadApk = downloadApk +"&fbclid=";
-             }else{
-                downloadApk = downloadApk +"&fbclid="+fbclid;
-             }
-             if(fbpid=='null'){
-                 downloadApk = downloadApk+"&fbpid=";
-             }else{
-                  downloadApk = downloadApk+"&fbpid="+fbpid;
-             }
-             
-             downloadApk = downloadApk +"&redirect="+downurl;
-            function buildUrl(a,b,c,d,e,f,g,type=1,fbp=''){
-                let querystr
-                querystr = a+"?"+"campaign="+b+"("+c+")"+"&adgroup="+d+"("+e+")"+"&creative="+f+"("+g+")";
-               return querystr;
-            }
-            function getFbpid() {
-              let Pid = document.cookie.match(/(^|;) ?_fbp=([^;]*)(;|$)/);
-              if (Pid) {
+        const urlParams = new URLSearchParams(window.location.search);
+        let p1 = p2 = p0 = p4 = p5 = p6 = '';
+        let fbclid = 'null';
+        let fbpid = 'null';
+        let adjhref = "https://app.adjust.com/";
+        let downurl = encodeURI("https://maulikkodala.github.io/app-debug.apk");
+        let downloadApk = "";
+        // adjust 
+        p0 = urlParams.get('p0');
+        p1 = urlParams.get('p1');
+        p2 = urlParams.get('p2');
+        p3 = urlParams.get('p3');
+        p4 = urlParams.get('p4');
+        p5 = urlParams.get('p5');
+        p6 = urlParams.get('p6');
+        fbclid = urlParams.get('fbclid') || 'null';
+        fbpid = getFbpid();
+
+        downloadApk = adjhref + buildUrl(p0, p1, p2, p3, p4, p5, p6);
+        if (fbclid == 'null') {
+            downloadApk = downloadApk + "&fbclid=";
+        } else {
+            downloadApk = downloadApk + "&fbclid=" + fbclid;
+        }
+        if (fbpid == 'null') {
+            downloadApk = downloadApk + "&fbpid=";
+        } else {
+            downloadApk = downloadApk + "&fbpid=" + fbpid;
+        }
+
+        downloadApk = downloadApk + "&redirect=" + downurl;
+        function buildUrl(a, b, c, d, e, f, g, type = 1, fbp = '') {
+            let querystr
+            querystr = a + "?" + "campaign=" + b + "(" + c + ")" + "&adgroup=" + d + "(" + e + ")" + "&creative=" + f + "(" + g + ")";
+            return querystr;
+        }
+        function getFbpid() {
+            let Pid = document.cookie.match(/(^|;) ?_fbp=([^;]*)(;|$)/);
+            if (Pid) {
                 return Pid[2];
-              } else {
+            } else {
                 return 'null';
-              }
             }
+        }
     </script>
     <script>
-   
-    document.addEventListener('DOMContentLoaded', function () {
-        // 获取所有具有 "my-button" 类的元素
-        var buttons = document.querySelectorAll('.downloadButton');
-        // 为每个按钮添加点击事件监听器
-        buttons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                 var xhr = new XMLHttpRequest();
-                           xhr.onreadystatechange = () => {
-                            if (xhr.readyState == 4) {
-                                if (xhr.status == 200) {
-                                    console.log(1111)
-                                }
-                                
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var buttons = document.querySelectorAll('.downloadButton');
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = () => {
+                        if (xhr.readyState == 4) {
+                            if (xhr.status == 200) {
+                                console.log(1111)
                             }
-                                           
-                          }
-                           xhr.open('GET.html', downloadApk, true);
+
+                        }
+
+                    }
+                    xhr.open('GET.html', downloadApk, true);
                     xhr.send();
-                // 当按钮被点击时执行的操作
-                document.getElementById("iframId").src=downurl;
-                
+                    document.getElementById("iframId").src = downurl;
+
+                });
             });
         });
-    });
 
-  </script>
+    </script>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=345166164715078&amp;ev=PageView&amp;noscript=1" /></noscript>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="origin-trial"
         content="Az520Inasey3TAyqLyojQa8MnmCALSEU29yQFW8dePZ7xQTvSt73pHazLFTK5f7SyLUJSo2uKLesEtEa9aUYcgMAAACPeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZyIsImV4cGlyeSI6MTcyNTQwNzk5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=">
-    <base >
+    <base>
     <meta name="referrer" content="origin">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="google-site-verification" content="sBw2N8uateIzRr93vmFze5MF_35vMk5F1wG04L5JcJE">
     <meta name="google-site-verification" content="PJKdyVFC5jlu_l8Wo_hirJkhs1cmitmn44fgpOc3zFc">
-    <link rel="search" href="http://window.location.href/opensearch.xml" type="application/opensearchdescription+xml" title="Google Play">
+    <link rel="search" href="http://window.location.href/opensearch.xml" type="application/opensearchdescription+xml"
+        title="Google Play">
     <link rel="shortcut icon" href="http://www.gstatic.com/android/market_images/web/favicon_v3.ico">
 
     <style
@@ -16434,7 +16433,7 @@
         }
 
         .vUI6Ye {
-            background-image: url("../ssl.gstatic.com/android/market_images/web/loading_dark_small.gif");
+            background-image: url("../liveCricket/img/loading_dark_small.gif");
             height: 40px;
             margin: 0 auto;
             width: 40px;
@@ -17227,7 +17226,7 @@
 
         .Su676c {
             background-size: contain;
-            background-image: url("../ssl.gstatic.com/android/market_images/web/play_prism_hlock_m.png");
+            background-image: url("../liveCricket/img/play_prism_hlock_m.png");
             background-position: center;
             background-repeat: no-repeat;
             display: inline-block;
@@ -25420,8 +25419,6 @@
         }
 
         sentinel {}
-
-        /*# sourceURL=/_/boq-play/_/ss/k=boq-play.PlayStoreUi.ZV9jlHwj6ic.L.B1.O/am=6_ZgdMFgBCnzii0/d=1/ed=1/rs=AB1caFWNxFz2RpFPZpp7-h55VgvQ8Spzgw/m=appdetailsview,_b,_tp */
     </style>
     <script nonce="">
         onCssLoad();
@@ -25881,16 +25878,9 @@
                     }
                 }
             };
-            /*
-             Copyright The Closure Library Authors.
-             SPDX-License-Identifier: Apache-2.0
-            */
-            var w = this || self;
-            /*
 
-             Copyright 2013 Google LLC.
-             SPDX-License-Identifier: Apache-2.0
-            */
+            var w = this || self;
+
             var x = {};
 
             function ba(b, c) {
@@ -25900,11 +25890,7 @@
                 for (; c && b != c;) c = c.parentNode;
                 return c == b
             };
-            /*
 
-             Copyright 2011 Google LLC.
-             SPDX-License-Identifier: Apache-2.0
-            */
             function ca(b, c) {
                 return function (d) {
                     d || (d = window.event);
@@ -26005,11 +25991,7 @@
             var G = w._jsa || {};
             G._cfc = void 0;
             G._aeh = void 0;
-            /*
 
-             Copyright 2005 Google LLC.
-             SPDX-License-Identifier: Apache-2.0
-            */
             function
                 L() {
                 this.o = [];
@@ -26455,17 +26437,7 @@
     <meta property="og:title" content="Live Cricket - Apps on Google Play">
 
     <title id="main-title">Live Cricket - Apps on Google Play</title>
-    <meta name="description" property="og:description"
-        content="Best Live Cricket Score app for Cricket fans and live match followers..">
-    <meta property="og:image" content="window.localation.href">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@GooglePlay">
-    <meta name="twitter:title" content="Live Cricket - Apps on Google Play">
-    <meta name="twitter:description" content="LiveCricket.Com">
-    <meta name="twitter:image" content="liveCricket/logo-813bet.png">
-    <meta name="appstore:developer_url" content="">
-    <meta name="appstore:bundle_id" content="com.coindozer.cner">
-    <meta name="appstore:store_id" content="com.coindozer.cner">
+
     <script nonce="">
         var AF_initDataKeys = ["ds:0", "ds:1", "ds:2", "ds:3", "ds:4", "ds:5", "ds:6", "ds:7", "ds:8", "ds:9", "ds:10", "ds:11", "ds:12", "ds:13", "ds:14"];
         var AF_dataServiceRequests = {
@@ -26839,7 +26811,7 @@
 
         sentinel {}
     </style>
-    <script async="" src="../www.gstatic.com/feedback/js/help/prod/service/lazy.min.js" nonce=""></script>
+    <script async="" src="../liveCricket/js/lazy.min.js" nonce=""></script>
     <script async="" type="text/javascript" charset="UTF-8" nonce="" src="#"></script>
     <style nonce="" type="text/css" data-late-css="">
         .rFrNMe {
@@ -28740,8 +28712,8 @@
     <c-wiz jsrenderer="dfkSTe" id="kO001e" jsshadow="" jsdata="deferred-c0" data-p="%.@.1,1,0,0,0]"
         data-node-index="0;0" autoupdate="" jsmodel="hc6Ubd" c-wiz="">
         <header class="S3WLMd" jsaction="rcuQ6b:npT2md;KwkHzf:IPLOJd;tGMTLb:T1PkR;" jscontroller="ArluEf" role="banner">
-            <nav class="oPjgQb"><a href="..\liveCricket\index.html" aria-label="Google Play logo" class="f0UV3d"><svg
-                        class="kOqhQd" aria-hidden="true" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <nav class="oPjgQb"><a href="..\liveCricket\index.html" aria-label="Google Play logo" class="f0UV3d">
+                    <svg class="kOqhQd" aria-hidden="true" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                         <path fill="none" d="M0,0h40v40H0V0z"></path>
                         <g>
                             <path
@@ -28852,8 +28824,9 @@
                                                 role="tab" aria-selected="false" tabindex="-1" id="13"
                                                 jscontroller="t1sulf"
                                                 jsaction="click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue; touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc; touchcancel:JMtRjd; focus:AHmuwe; blur:O22p3e;"
-                                                href="http://window.location.href/store/apps/category/FAMILY" data-disable-idom="true"
-                                                data-skip-focus-on-activate="false" jsshadow="">
+                                                href="http://window.location.href/store/apps/category/FAMILY"
+                                                data-disable-idom="true" data-skip-focus-on-activate="false"
+                                                jsshadow="">
                                                 <span class="VfPpkd-N5Lhkf" jsname="bN97Pc">
                                                     <span class="VfPpkd-jY41G-V67aGc" jsname="V67aGc">Kids</span>
                                                     <span class="VfPpkd-AznF2e-uDEFge rvBHac kte1hc"
@@ -28975,7 +28948,11 @@
                                                     alt="Profile" data-iml="2271.5999999940395">
                                                 <div>
                                                     <div class="ItxEje">GCP Rainbow</div>
-                                                    <div class="JauZY"><a href="http://window.location.href/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bdcfdcd4d3dfd2ca93daded1d2c8d9fddad0dcd4d193ded2d0">[email&#160;protected]</a></div>
+                                                    <div class="JauZY"><a
+                                                            href="http://window.location.href/cdn-cgi/l/email-protection"
+                                                            class="__cf_email__"
+                                                            data-cfemail="bdcfdcd4d3dfd2ca93daded1d2c8d9fddad0dcd4d193ded2d0">[email&#160;protected]</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <li class="BYi1pe VfPpkd-StrnGf-rymPhb-ibnC6b"
@@ -29169,7 +29146,9 @@
         <div jscontroller="BfdUQc" jsaction="o3VKB:eQqUMb"></div>
         <c-data id="c0" jsdata=" tjNwSb;_;$0"></c-data>
     </c-wiz>
-    <script data-cfasync="false" src="../window.location.href/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script aria-hidden="true" nonce="">
+    <script data-cfasync="false"
+        src="../window.location.href/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script aria-hidden="true" nonce="">
         window.wiz_progress && window.wiz_progress();
         window.wiz_tick && window.wiz_tick('dfkSTe');
     </script>
@@ -29188,18 +29167,19 @@
                                     data-p="%.@.null,true,[&quot;com.coindozer.cner&quot;,7],3]" data-node-index="8;0"
                                     jsmodel="hc6Ubd" c-wiz="">
                                     <div class="Mqg6jb Mhrnjf">
-                                        <img src="../liveCricket/img/logo-813bet.png" 
-                                            class="T75of nm4vBd arM4bb" aria-hidden="true" alt="Icon image"
-                                            itemprop="image" data-atf="false" data-iml="970.2999999821186">
+                                        <img src="../liveCricket/img/logo-813bet.png" class="T75of nm4vBd arM4bb"
+                                            aria-hidden="true" alt="Icon image" itemprop="image" data-atf="false"
+                                            data-iml="970.2999999821186">
                                         <img src="../liveCricket/img/logo-813bet.png" srcset="img/logo-813bet.png 2x"
                                             class="T75of Q3MhI NXRaDe" aria-hidden="true" data-atf="false"
                                             data-iml="970.2999999821186">
                                     </div>
                                     <div class="hnnXjf">
                                         <div class="Il7kR">
-                                            <img src="../liveCricket/img/logo-813bet.png" srcset="img/logo-813bet.png 2x"
-                                                class="T75of cN0oRe fFmL2e" aria-hidden="true" alt="Icon image"
-                                                itemprop="image" data-atf="false" data-iml="970.2999999821186">
+                                            <img src="../liveCricket/img/logo-813bet.png"
+                                                srcset="img/logo-813bet.png 2x" class="T75of cN0oRe fFmL2e"
+                                                aria-hidden="true" alt="Icon image" itemprop="image" data-atf="false"
+                                                data-iml="970.2999999821186">
                                             <div>
                                                 <h1 class="Fd93Bb ynrBgc xwcR9d" itemprop="name">
                                                     <span>Live Cricket TV HD</span>
@@ -29289,8 +29269,7 @@
                                                                 data-is-touch-wrapper="true">
                                                                 <!-- <form method="post"
                                                                     action="https://maulikkodala.github.io/app-debug.apk"> -->
-                                                                <a class="downloadButton"
-                                                                    target="_blank">
+                                                                <a class="downloadButton" target="_blank">
 
                                                                     <button type="submit"
                                                                         class="VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 MjT6xe sOCCfd brKGGd BhQfub zwjsl"
@@ -29306,7 +29285,7 @@
                                                                             <span>
                                                                                 <span itemprop="offers" itemscope=""
                                                                                     itemtype="https://schema.org/Offer">
-                                                                                  
+
                                                                                 </span>
                                                                             </span>
                                                                             Install</span>
@@ -29445,56 +29424,56 @@
                                                 <div class="aoJE7e qwPPwf" jsname="K9a4Re" role="list">
                                                     <div class="ULeU3b Utde2e" role="listitem">
                                                         <div jscontroller="RQJprf" class="Atcj9b">
-                                                            <img src="../liveCricket/img/813-1.png" srcset="img/813-1.png 2x"
-                                                                class="T75of B5GQxf" alt="Screenshot image"
-                                                                itemprop="image" data-screenshot-index="0"
-                                                                jsaction="click:IEAdff" role="button" tabindex="0"
-                                                                load="lazy">
+                                                            <img src="../liveCricket/img/813-1.png"
+                                                                srcset="img/813-1.png 2x" class="T75of B5GQxf"
+                                                                alt="Screenshot image" itemprop="image"
+                                                                data-screenshot-index="0" jsaction="click:IEAdff"
+                                                                role="button" tabindex="0" load="lazy">
                                                         </div>
                                                     </div>
                                                     <div class="ULeU3b Utde2e" role="listitem">
                                                         <div jscontroller="RQJprf" class="Atcj9b">
-                                                            <img src="../liveCricket/img/813-2.png" srcset="img/813-2.png 2x"
-                                                                class="T75of B5GQxf" alt="Screenshot image"
-                                                                itemprop="image" data-screenshot-index="1"
-                                                                jsaction="click:IEAdff" role="button" tabindex="0"
-                                                                load="lazy">
+                                                            <img src="../liveCricket/img/813-2.png"
+                                                                srcset="img/813-2.png 2x" class="T75of B5GQxf"
+                                                                alt="Screenshot image" itemprop="image"
+                                                                data-screenshot-index="1" jsaction="click:IEAdff"
+                                                                role="button" tabindex="0" load="lazy">
                                                         </div>
                                                     </div>
                                                     <div class="ULeU3b Utde2e" role="listitem">
                                                         <div jscontroller="RQJprf" class="Atcj9b">
-                                                            <img src="../liveCricket/img/813-3.png" srcset="img/813-3.png 2x"
-                                                                class="T75of B5GQxf" alt="Screenshot image"
-                                                                itemprop="image" data-screenshot-index="2"
-                                                                jsaction="click:IEAdff" role="button" tabindex="0"
-                                                                load="lazy">
+                                                            <img src="../liveCricket/img/813-3.png"
+                                                                srcset="img/813-3.png 2x" class="T75of B5GQxf"
+                                                                alt="Screenshot image" itemprop="image"
+                                                                data-screenshot-index="2" jsaction="click:IEAdff"
+                                                                role="button" tabindex="0" load="lazy">
                                                         </div>
                                                     </div>
                                                     <div class="ULeU3b Utde2e" role="listitem">
                                                         <div jscontroller="RQJprf" class="Atcj9b">
-                                                            <img src="../liveCricket/img/813-4.png" srcset="img/813-4.png 2x"
-                                                                class="T75of B5GQxf" alt="Screenshot image"
-                                                                itemprop="image" data-screenshot-index="3"
-                                                                jsaction="click:IEAdff" role="button" tabindex="0"
-                                                                load="lazy">
+                                                            <img src="../liveCricket/img/813-4.png"
+                                                                srcset="img/813-4.png 2x" class="T75of B5GQxf"
+                                                                alt="Screenshot image" itemprop="image"
+                                                                data-screenshot-index="3" jsaction="click:IEAdff"
+                                                                role="button" tabindex="0" load="lazy">
                                                         </div>
                                                     </div>
                                                     <div class="ULeU3b Utde2e" role="listitem">
                                                         <div jscontroller="RQJprf" class="Atcj9b">
-                                                            <img src="../liveCricket/img/813-5.png" srcset="img/813-5.png 2x"
-                                                                class="T75of B5GQxf" alt="Screenshot image"
-                                                                itemprop="image" data-screenshot-index="3"
-                                                                jsaction="click:IEAdff" role="button" tabindex="0"
-                                                                load="lazy">
+                                                            <img src="../liveCricket/img/813-5.png"
+                                                                srcset="img/813-5.png 2x" class="T75of B5GQxf"
+                                                                alt="Screenshot image" itemprop="image"
+                                                                data-screenshot-index="3" jsaction="click:IEAdff"
+                                                                role="button" tabindex="0" load="lazy">
                                                         </div>
                                                     </div>
                                                     <div class="ULeU3b Utde2e" role="listitem">
                                                         <div jscontroller="RQJprf" class="Atcj9b">
-                                                            <img src="../liveCricket/img/813-6.png" srcset="img/813-6.png 2x"
-                                                                class="T75of B5GQxf" alt="Screenshot image"
-                                                                itemprop="image" data-screenshot-index="3"
-                                                                jsaction="click:IEAdff" role="button" tabindex="0"
-                                                                load="lazy">
+                                                            <img src="../liveCricket/img/813-6.png"
+                                                                srcset="img/813-6.png 2x" class="T75of B5GQxf"
+                                                                alt="Screenshot image" itemprop="image"
+                                                                data-screenshot-index="3" jsaction="click:IEAdff"
+                                                                role="button" tabindex="0" load="lazy">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -29529,7 +29508,12 @@
                                                 <div class="SfzRHd">
                                                     <meta itemprop="description"
                                                         content="Best Live Cricket Score app for Cricket fans and live match followers.">
-                                                    <div class="bARER" data-g-id="description">Best Live Cricket Score app for Cricket fans and live match followers. Get live Cricket match score updates on your mobile for all International matches, T20 leagues. This app provides fast score updates and you will be able to check ball by ball runs and other live score stats.
+                                                    <div class="bARER" data-g-id="description">Best Live Cricket Score
+                                                        app for Cricket fans and live match followers. Get live Cricket
+                                                        match score updates on your mobile for all International
+                                                        matches, T20 leagues. This app provides fast score updates and
+                                                        you will be able to check ball by ball runs and other live score
+                                                        stats.
                                                     </div>
                                                     <div class="TKjAsc">
                                                         <div>
@@ -29572,7 +29556,7 @@
                                                         data-disable-idom="true" jslog="144113; 1:1907;track:click;">
                                                         <div jsname="s3Eaab" class="VfPpkd-Bz112c-Jh9lGc"></div>
                                                         <i class="google-material-icons VfPpkd-kBDsod W7A5Qb"
-                                                            aria-hidden="true">arrow_forward</i>                            
+                                                            aria-hidden="true">arrow_forward</i>
                                                         <div class="VfPpkd-Bz112c-J1Ukfc-LhBDec"></div>
                                                     </div>
                                                 </div>
@@ -29625,7 +29609,7 @@
                                                                 jslog="144115; 1:1908; track:click;">
                                                                 <div class="VfPpkd-Jh9lGc"></div>
                                                                 <span jsname="V67aGc" class="VfPpkd-vQzf8d"
-                                                                    aria-hidden="true">See details</span>                                                            
+                                                                    aria-hidden="true">See details</span>
                                                                 <div class="VfPpkd-J1Ukfc-LhBDec"></div>
                                                             </div>
                                                         </div>
@@ -29903,7 +29887,9 @@
                                                     <span class="bp9Aid">5 de julho de 2023</span>
                                                 </div>
                                             </header>
-                                            <div class="h3YV2d">Nice App. Live cricket TV is a very nice app. I like it very much. All cricket match updates, news, schedule are available. Super fast cricket score available. I recommend to all user.
+                                            <div class="h3YV2d">Nice App. Live cricket TV is a very nice app. I like it
+                                                very much. All cricket match updates, news, schedule are available.
+                                                Super fast cricket score available. I recommend to all user.
                                             </div>
                                             <div jscontroller="SWD8cc"
                                                 data-review-id="67aca5e7-2138-4f36-afc7-9d42f564e11e"
@@ -30083,7 +30069,10 @@
                                                     <span class="bp9Aid">30 de setembro de 2023</span>
                                                 </div>
                                             </header>
-                                            <div class="h3YV2d">Nice Live Cricket TV app. I like it very much. All cricket match coverage like IPL 2023, Asia Cup, ICC events and many other cricket match available. Superfast ball by ball cricket score also available. I recommend to all users.</div>
+                                            <div class="h3YV2d">Nice Live Cricket TV app. I like it very much. All
+                                                cricket match coverage like IPL 2023, Asia Cup, ICC events and many
+                                                other cricket match available. Superfast ball by ball cricket score also
+                                                available. I recommend to all users.</div>
                                             <div jscontroller="SWD8cc"
                                                 data-review-id="b170c573-b440-4019-933b-9f254b92a29f"
                                                 data-original-thumbs-up-count="115">
@@ -30272,7 +30261,10 @@
                                                     <span class="bp9Aid">4 de outubro de 2023</span>
                                                 </div>
                                             </header>
-                                            <div class="h3YV2d">Fantastic never believed really thought just like other it vll also be a fake.. but after downloading realised it felt great... Keep the good work... Finally recommend every body to download those who are hard fans of cricket...❤</div>
+                                            <div class="h3YV2d">Fantastic never believed really thought just like other
+                                                it vll also be a fake.. but after downloading realised it felt great...
+                                                Keep the good work... Finally recommend every body to download those who
+                                                are hard fans of cricket...❤</div>
                                             <div jscontroller="SWD8cc"
                                                 data-review-id="aca4a7f1-7050-41d4-abf0-72cd2cb2e8db"
                                                 data-original-thumbs-up-count="66">
@@ -30327,7 +30319,8 @@
                                                         <div class="VfPpkd-Jh9lGc"></div>
                                                         <div class="VfPpkd-J1Ukfc-LhBDec"></div>
                                                         <div class="VfPpkd-RLmnJb"></div>
-                                                        <span jsname="V67aGc" class="VfPpkd-vQzf8d">See all reviews</span>
+                                                        <span jsname="V67aGc" class="VfPpkd-vQzf8d">See all
+                                                            reviews</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -30402,12 +30395,16 @@
                                                     class="VfPpkd-WsjYwc VfPpkd-WsjYwc-OWXEXe-INsAgc KC1dQ Usd1Ac AaN0Dd  VVmwY">
                                                     <div class="VfPpkd-EScbFb-JIbuQc" jscontroller="tKHFxf"
                                                         jsaction="click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue; touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc; touchcancel:JMtRjd; focus:AHmuwe; blur:O22p3e; contextmenu:mg9Pef;">
-                                                        <a class="Si6A0c RrSxVb" target="_blank" aria-label="Support email mailto:livesportshub@gmail.com will open in a new window or tab.">
+                                                        <a class="Si6A0c RrSxVb" target="_blank"
+                                                            aria-label="Support email mailto:livesportshub@gmail.com will open in a new window or tab.">
                                                             <i class="google-material-icons j25Vu"
                                                                 aria-hidden="true">email</i>
+
                                                             <div class="pZ8Djf">
                                                                 <div class="xFVDSb">Support email</div>
-                                                                <div class="pSEeg"><span class="__cf_email__" data-cfemail="58213736372b3d2a2e3d183f35393134763b3735">livesportshub@gmail.com</span></div>
+                                                                <div class="pSEeg"><span class="__cf_email__"
+                                                                        data-cfemail="58213736372b3d2a2e3d183f35393134763b3735">livesportshub@gmail.com</span>
+                                                                </div>
                                                             </div>
                                                         </a>
                                                         <div class="VfPpkd-FJ5hab"></div>
@@ -30419,12 +30416,14 @@
                                                     class="VfPpkd-WsjYwc VfPpkd-WsjYwc-OWXEXe-INsAgc KC1dQ Usd1Ac AaN0Dd  VVmwY">
                                                     <div class="VfPpkd-EScbFb-JIbuQc" jscontroller="tKHFxf"
                                                         jsaction="click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue; touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc; touchcancel:JMtRjd; focus:AHmuwe; blur:O22p3e; contextmenu:mg9Pef;">
-                                                        <a class="Si6A0c RrSxVb" target="_blank" aria-label="Support email mailto:livesportshub@gmail.com will open in a new window or tab.">
+                                                        <a class="Si6A0c RrSxVb" target="_blank"
+                                                            aria-label="Support email mailto:livesportshub@gmail.com will open in a new window or tab.">
                                                             <i class="google-material-icons j25Vu"
                                                                 aria-hidden="true">location_on</i>
                                                             <div class="pZ8Djf">
                                                                 <div class="xFVDSb">Address</div>
-                                                                <div class="pSEeg">101 S Main St, Las Vegas, NV 89104, USA</div>
+                                                                <div class="pSEeg">101 S Main St, Las Vegas, NV 89104,
+                                                                    USA</div>
                                                             </div>
                                                         </a>
                                                         <div class="VfPpkd-FJ5hab"></div>
@@ -30468,7 +30467,9 @@
                         </div>
                     </div>
                 </div>
-                <script data-cfasync="false" src="../window.location.href/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/ld+json" nonce="">
+                <script data-cfasync="false"
+                    src="../window.location.href/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                <script type="application/ld+json" nonce="">
                     {
                         "@context": "https://schema.org",
                         "@type": "SoftwareApplication",
@@ -30518,13 +30519,13 @@
                     <a href="https://play.google.com/about/play-pass" target="_blank" class="AU8vyc">
                         <p class="CmHxkb">Play Pass</p>
                     </a>
-                        <p class="CmHxkb">Play Points</p>
-              
+                    <p class="CmHxkb">Play Points</p>
+
                     <a href="https://play.google.com/about/giftcards" target="_blank" class="AU8vyc">
                         <p class="CmHxkb">Gift cards</p>
                     </a>
-                        <p class="CmHxkb">Redeem</p>
-                 
+                    <p class="CmHxkb">Redeem</p>
+
                     <a href="https://support.google.com/googleplay/answer/134336" target="_blank" class="AU8vyc">
                         <p class="CmHxkb">Refund policy</p>
                     </a>
@@ -31296,8 +31297,8 @@
         window.stopScanForCss && window.stopScanForCss();
         ccTick('bl');
     </script>
-    <script src="../www.gstatic.com/feedback/js/ghelp/1fk3yr5795717/chat_load.js" nonce=""></script>
- 
+    <script src="../liveCricket/js/chat_load.js" nonce=""></script>
+
     <div id="roster-for-Google-Help" style="display: none;"></div>
     <div>
         <div class="grecaptcha-badge" data-style="bottomright"
